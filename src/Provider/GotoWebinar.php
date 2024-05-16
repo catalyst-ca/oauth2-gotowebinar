@@ -28,7 +28,12 @@ class GotoWebinar extends AbstractProvider
      *
      * @var string
      */
-    public $domain = 'https://api.getgo.com';
+    public string $domainAuth = 'https://authentication.logmeininc.com';
+
+    /**
+     * Scim authenticazion host
+     */
+    public string $domain = 'https://api.getgo.com';
 
     /**
      * Constructs an OAuth 2.0 service provider.
@@ -79,7 +84,7 @@ class GotoWebinar extends AbstractProvider
      */
     public function getBaseAuthorizationUrl()
     {
-        return $this->domain.'/oauth/v2/authorize';
+        return $this->domainAuth . '/oauth/authorize';
     }
 
     /**
@@ -91,7 +96,7 @@ class GotoWebinar extends AbstractProvider
      */
     public function getBaseAccessTokenUrl(array $params)
     {
-        return $this->domain.'/oauth/v2/token';
+        return $this->domainAuth . '/oauth/token';
     }
 
     /**
